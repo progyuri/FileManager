@@ -64,7 +64,7 @@ public:
 
     void getSize(const std::string& name) {
         auto path = currentPath / name;
-        uintmax_t size = 0;
+        int size = 0;
         if (fs::is_directory(path)) {
             for (const auto& file : fs::recursive_directory_iterator(path)) {
                 if (fs::is_regular_file(file)) {
@@ -90,7 +90,7 @@ private:
     fs::path currentPath;
 };
 
-void main() {
+int main() {
     FileManager fm;
     std::string input;
     std::string name, newName;
